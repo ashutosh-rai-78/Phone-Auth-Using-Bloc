@@ -5,7 +5,16 @@ import 'package:phone_auth_using_bloc/cubits/auth_cubit/auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  AuthCubit() : super(AuthInitialState());
+  AuthCubit() : super(AuthInitialState()){
+    User? currentUser = _auth.currentUser;
+    if(currentUser != null){
+      //Logged In
+      emit(AuthLoggedInState(currentUser));
+    }else{
+      emit(AuthLoggedOutState());
+
+    }
+  }
   String? _verificationId;
 
   void sendOTP(String phoneNo) async {
@@ -44,5 +53,10 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       emit(AuthErrorState(e.message.toString()));
     }
+  }
+
+  void logOut() async{
+    await _auth.signOut();
+    emit(AuthLoggedOutState());
   }
 }
