@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:phone_auth_using_bloc/screens/verify_phone_no.dart';
 
 class SignInScreen extends StatelessWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  TextEditingController phoneController = TextEditingController();
+
+  SignInScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // TextEditingController textEditingController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sign In Phone"),
@@ -16,11 +17,11 @@ class SignInScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            const TextField(
-              // controller:textEditingController,
+            TextField(
+              controller:phoneController,
               maxLength: 10,
               keyboardType:TextInputType.phone,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: "Phone No.",
                   counterText: ""),

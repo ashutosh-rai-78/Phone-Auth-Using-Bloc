@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:phone_auth_using_bloc/cubits/auth_cubit/auth_cubit.dart';
 import 'package:phone_auth_using_bloc/screens/home_screen.dart';
 import 'package:phone_auth_using_bloc/screens/sign_in_screen.dart';
 
@@ -15,12 +17,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return BlocProvider(
+      create: (BuildContext context) => AuthCubit() ,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: SignInScreen(),
       ),
-      home: SignInScreen(),
     );
   }
 }

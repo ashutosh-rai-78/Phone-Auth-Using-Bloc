@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:phone_auth_using_bloc/screens/home_screen.dart';
 
 class VerifyPhoneNoScreen extends StatelessWidget {
-  const VerifyPhoneNoScreen({Key? key}) : super(key: key);
+  TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class VerifyPhoneNoScreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            const TextField(
-              // controller:textEditingController,
+            TextField(
+              controller:otpController,
               maxLength: 10,
               keyboardType:TextInputType.phone,
               decoration: InputDecoration(
