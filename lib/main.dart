@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phone_auth_using_bloc/screen/home_screen.dart';
+import 'package:phone_auth_using_bloc/screens/home_screen.dart';
+import 'package:phone_auth_using_bloc/screens/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home: SignInScreen(),
     );
   }
 }
