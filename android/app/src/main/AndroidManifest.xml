@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.phone_auth_using_bloc">
+
    <application
         android:label="phone_auth_using_bloc"
         android:name="${applicationName}"
